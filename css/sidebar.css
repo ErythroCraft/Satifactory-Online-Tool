@@ -1,0 +1,270 @@
+/* --- SIDEBAR DESIGN (STANDARD: LINKS) --- */
+#sidebar {
+    position: absolute;
+    top: 0;
+    left: 0; /* Standardmäßig links festgemacht */
+    width: 280px;
+    height: 100vh;
+    background: #111622;
+    border-right: 2px solid #28334a;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+    transition:
+        left 0.2s ease,
+        right 0.2s ease,
+        border 0.2s ease; /* Weicher Übergang beim Wechseln */
+}
+
+/* **NEU: Wenn die Klasse .sidebar-right aktiv ist, schiebe die Leiste nach rechts** */
+body.sidebar-right #sidebar {
+    left: auto;
+    right: 0;
+    border-right: none;
+    border-left: 2px solid #28334a;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-header {
+    padding: 10px 20px;
+    font-size: 12px;
+    color: #00bfff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    border-bottom: 1px solid #1c2333;
+    margin-bottom: 5px;
+}
+
+.sidebar-scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.sidebar-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar-scroll-container::-webkit-scrollbar-track {
+    background: #111622;
+}
+.sidebar-scroll-container::-webkit-scrollbar-thumb {
+    background: #28334a;
+    border-radius: 3px;
+}
+.sidebar-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #00bfff;
+}
+
+.category-title {
+    padding: 15px 20px 5px 20px;
+    font-size: 11px;
+    color: #5f75a1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 15px;
+}
+
+.tool-btn {
+    aspect-ratio: 1 / 1;
+    background: #181f30;
+    border: 2px solid #28334a;
+    border-radius: 8px;
+    color: #a0aec0;
+    cursor: grab;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    position: relative;
+    transition: all 0.15s ease-in-out;
+}
+
+.tool-btn:hover {
+    background: #1c263d;
+    border-color: #3b4d75;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.tool-btn:active {
+    cursor: grabbing;
+}
+
+.icon-placeholder {
+    width: 40px;
+    height: 40px;
+    background: #232d45;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 1px dashed #3b4d75;
+    overflow: hidden;
+}
+
+.icon-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tool-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* --- OBERES UI OVERLAY --- */
+#ui {
+    position: absolute;
+    top: 10px;
+    left: 285px; /* Abstand von der linken Sidebar */
+    right: auto;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px;
+    border-radius: 6px;
+    pointer-events: none;
+    border: 1px solid #1c2333;
+    z-index: 10;
+    transition:
+        left 0.2s ease,
+        right 0.2s ease;
+}
+
+/* UI-Button braucht wieder Maus-Events */
+#toggle-sidebar-side {
+    pointer-events: auto;
+}
+#toggle-sidebar-side:hover {
+    background: #3b4d75 !important;
+}
+
+/* **NEU: Wenn Sidebar rechts ist, muss das UI-Feld nach links rutschen** */
+body.sidebar-right #ui {
+    left: 10px;
+    right: auto;
+}
+
+/* --- KONTEXTMENÜ --- */
+#context-menu {
+    display: none;
+    position: absolute;
+    background: #111622;
+    border: 2px solid #28334a;
+    border-radius: 6px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    width: 180px;
+    padding: 5px 0;
+}
+
+.menu-header {
+    padding: 6px 15px;
+    font-size: 11px;
+    color: #5f75a1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #1c2333;
+    margin-bottom: 5px;
+}
+
+.menu-item {
+    padding: 10px 15px;
+    color: #e0e0e0;
+    cursor: pointer;
+    font-size: 13px;
+    transition:
+        background 0.2s,
+        color 0.2s;
+}
+
+.menu-item:hover {
+    background: #00bfff;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Styling für dynamische Rezept-Einträge im Kontextmenü */
+.menu-recipe-item {
+    padding: 8px 15px;
+    font-size: 13px;
+    color: #00bfff;
+    cursor: pointer;
+    background: #161d2d;
+    margin: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid #232d45;
+    transition: all 0.15s ease;
+}
+
+.menu-recipe-item:hover {
+    background: #00bfff;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Farbliche Markierung für das feste Löschen-Feld im HTML Kontextmenü */
+#ctx-clear {
+    color: #ff4c4c;
+    border-top: 1px solid #1c2333;
+    margin-top: 5px;
+}
+
+/* --- SUBMENÜ LOGIK (HOVER-EFFEKT) --- */
+
+/* Der Trigger-Punkt im Hauptmenü braucht eine relative Positionierung */
+.has-submenu {
+    position: relative;
+}
+
+/* Das eigentliche Rezept-Submenü im Hintergrund vorbereiten */
+.submenu {
+    display: none; /* Standardmäßig unsichtbar */
+    position: absolute;
+    top: -5px; /* Leicht nach oben versetzt für perfekte Bündigkeit */
+    left: 100%; /* Schiebt das Submenü exakt rechts neben das Hauptmenü */
+    background: #111622;
+    border: 2px solid #28334a;
+    border-radius: 6px;
+    box-shadow: 5px 4px 15px rgba(0,0,0,0.6);
+    width: 180px;
+    padding: 5px 0;
+}
+
+/* **MAGIE:** Sobald die Maus über dem Trigger-Punkt schwebt, zeige das Submenü! */
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+/* Anpassung der Rezept-Items im Submenü */
+.menu-recipe-item {
+    padding: 10px 15px;
+    font-size: 13px;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.menu-recipe-item:hover {
+    background: #00bfff;
+    color: #000;
+    font-weight: bold;
+}

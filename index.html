@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satisfactory x shapez 2 Planer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+</head>
+<body>
+
+        <!-- Linke Sidebar mit allen Satisfactory-Maschinen -->
+    <div id="sidebar">
+        <div class="sidebar-header">Bau-Elemente</div>
+        <button id="toggle-sidebar-side" title="Sidebar-Seite wechseln" style="background: #28334a; border: 1px solid #3b4d75; color: #fff; cursor: pointer; padding: 4px 8px; border-radius: 4px; font-size: 12px; transition: background 0.15s;">
+            ⇄ Sidebar Verschieben
+        </button>
+        <br>
+        <p style="padding: 0 20px; font-size: 11px; color: #718096; margin: 0 0 10px 0;">Elemente auf das Feld ziehen</p>
+        
+        <div class="sidebar-scroll-container">
+            
+            <!-- KATEGORIE: RESSOURCEN -->
+            <div class="category-title">Ressourcen</div>
+            <div class="tools-grid">
+                <div class="tool-btn" draggable="true" data-type="Miner" data-color="#9400d3" data-label="Miner">
+                    <div class="icon-placeholder">⛏️</div>
+                    <div class="tool-label">Miner</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="OilExtractor" data-color="#4a3b32" data-label="Öl">
+                    <div class="icon-placeholder">🛢️</div>
+                    <div class="tool-label">Öl-Extraktor</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="WaterExtractor" data-color="#1e90ff" data-label="Wasser">
+                    <div class="icon-placeholder">💧</div>
+                    <div class="tool-label">Wasser-Extr.</div>
+                </div>
+            </div>
+
+            <!-- KATEGORIE: VERARBEITUNG -->
+            <div class="category-title">Verarbeitung</div>
+            <div class="tools-grid">
+                <div class="tool-btn" draggable="true" data-type="Smelter" data-color="#ff8c00" data-label="Fe">
+                    <div class="icon-placeholder">🔥</div>
+                    <div class="tool-label">Schmelzofen</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="Foundry" data-color="#e65c00" data-label="Guss">
+                    <div class="icon-placeholder">🏭</div>
+                    <div class="tool-label">Gießerei</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="Constructor" data-color="#00bfff" data-label="Platt">
+                    <div class="icon-placeholder">🛠️</div>
+                    <div class="tool-label">Konstruktor</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="Assembler" data-color="#4169e1" data-label="Mont">
+                    <div class="icon-placeholder">⚙️</div>
+                    <div class="tool-label">Manufaktur</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="Manufacturer" data-color="#00008b" data-label="Fab">
+                    <div class="icon-placeholder">🤖</div>
+                    <div class="tool-label">Fabrikator</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="Refinery" data-color="#228b22" data-label="Raff">
+                    <div class="icon-placeholder">🧪</div>
+                    <div class="tool-label">Raffinerie</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="Blender" data-color="#32cd32" data-label="Mix">
+                    <div class="icon-placeholder">🌀</div>
+                    <div class="tool-label">Mischer</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="ParticleAccelerator" data-color="#ff00ff" data-label="Kern">
+                    <div class="icon-placeholder">⚛️</div>
+                    <div class="tool-label">Teilchen-Beschl.</div>
+                </div>
+            </div>
+
+            <!-- KATEGORIE: LOGISTIK -->
+            <div class="category-title">Logistik & Lager</div>
+            <div class="tools-grid">
+                <div class="tool-btn" draggable="true" data-type="Belt" data-color="#2d3748" data-label="➔">
+                    <div class="icon-placeholder">➔</div>
+                    <div class="tool-label">Förderband</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="Splitter" data-color="#718096" data-label="Split">
+                    <div class="icon-placeholder">⤝</div>
+                    <div class="tool-label">Splitter</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="Merger" data-color="#4a5568" data-label="Merge">
+                    <div class="icon-placeholder">⤞</div>
+                    <div class="tool-label">Fusionator</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="Storage" data-color="#a0aec0" data-label="Box">
+                    <div class="icon-placeholder">📦</div>
+                    <div class="tool-label">Lagercontainer</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="Pipe" data-color="#008080" data-label="Rohr">
+                    <div class="icon-placeholder">🔵</div>
+                    <div class="tool-label">Pipeline</div>
+                </div>
+            </div>
+
+            <!-- KATEGORIE: STROM -->
+            <div class="category-title">Strom</div>
+            <div class="tools-grid">
+                <div class="tool-btn" draggable="true" data-type="BiomassBurner" data-color="#8b4513" data-label="Bio">
+                    <div class="icon-placeholder">🌿</div>
+                    <div class="tool-label">Biomassebrenner</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="CoalGenerator" data-color="#2f4f4f" data-label="Kohle">
+                    <div class="icon-placeholder">💨</div>
+                    <div class="tool-label">Kohlekraftwerk</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="FuelGenerator" data-color="#ff4500" data-label="Treib">
+                    <div class="icon-placeholder">⚡</div>
+                    <div class="tool-label">Treibstoffkraftw.</div>
+                </div>
+                <div class="tool-btn" draggable="true" data-type="NuclearGenerator" data-color="#00ff00" data-label="Atom">
+                    <div class="icon-placeholder">☢️</div>
+                    <div class="tool-label">Atomkraftwerk</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+        <!-- UI Overlay oben links / rechts -->
+    <div id="ui">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
+            <h3>Satisfactory x shapez 2 Planer</h3>
+        </div>
+        <p>Sidebar ➔ Feld: Drag & Drop zum Bauen</p>
+        <p>Auf dem Feld: Linksklick halten & ziehen zum Verschieben</p>
+        <p>Mausrad: Zoomen | Rechtsklick: Drehen / Löschen</p>
+        <p class="stats">Ausgewähltes Feld: <span id="selected-coord">Keines</span></p>
+    </div>
+
+    <!-- Rechtsklick-Kontextmenü mit Submenü-Struktur -->
+    <div id="context-menu">
+        <div class="menu-header" id="menu-tile-info">Feld: X, Y</div>
+        
+        <!-- Dieser Punkt öffnet bei Hover das Submenü -->
+        <div class="menu-item has-submenu" id="ctx-recipe-trigger">
+            📋 Rezept wählen <span style="float: right; color: #5f75a1;">➔</span>
+            <!-- Hier drin werden die Rezepte per JS generiert -->
+            <div id="dynamic-menu-options" class="submenu"></div>
+        </div>
+
+        <div class="menu-item" id="ctx-rotate">🔄 Objekt drehen (R)</div>
+        <div class="menu-item" id="ctx-clear">❌ Feld leeren</div>
+    </div>
+
+    <canvas id="mapCanvas"></canvas>
+
+    <!-- Zwingend vor main.js laden -->
+    <script src="js/renderBelts.js"></script>
+    <script src="js/renderMachines.js"></script>
+    <script src="js/renderPipes.js"></script>
+    
+    <!-- Core-Logik -->
+    <script src="js/main.js"></script>
+    <script src="js/interaction.js"></script>
+
+</body>
+</html>
